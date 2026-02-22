@@ -2,6 +2,7 @@
 
 ###
 @urlServer = http://localhost:4000
+@saleId = e3163c27-6a51-4013-a96e-29fb69f4873d
 
 ### Listar eventos
 GET {{urlServer}}/events
@@ -54,7 +55,7 @@ Content-Type: application/json
 }
 
 ### Atualizar status da venda
-PATCH {{urlServer}}/{{saleId}}/status?status=PAGO
+PATCH {{urlServer}}/sales/{{saleId}}/status?status=PAGO
 
 ### Deletar venda
-DELETE {{urlServer}}/{{saleId}}
+DELETE {{urlServer}}/sales/{{saleId}}

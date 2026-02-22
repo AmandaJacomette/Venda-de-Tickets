@@ -33,6 +33,11 @@ public class GatewayApiConfig {
                                 .uri("lb://sales-service")
                 )
 
+                .route("events", pred ->
+                        pred.path("/events/**")
+                                .uri("lb://sales-service")
+                )
+
                 .route("frontend",
                         pred -> pred.path("/**")
                                 .uri(getFrontEndUri())

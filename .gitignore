@@ -43,6 +43,7 @@ desktop.ini
 ############################################
 tickets/docker/data/
 docker/data/
+docker/pg_data/
 tickets/docker/logs/
 docker/logs/
 tickets/docker/postgres/ 
