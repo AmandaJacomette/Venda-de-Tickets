@@ -1,29 +1,42 @@
 package br.edu.ufop.web.sales.controller;
 
-import br.edu.ufop.web.sales.business.services.EventService;
-import br.edu.ufop.web.sales.controller.dtos.events.CreateEventDTO;
-import br.edu.ufop.web.sales.controller.dtos.events.EventDTO;
+import br.edu.ufop.web.sales.entity.Event;
+import br.edu.ufop.web.sales.service.EventService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/events")
 @RequiredArgsConstructor
 public class EventController {
 
-    private final EventService eventService;
+    private final EventService service;
 
     @GetMapping
-    public ResponseEntity<List<EventDTO>> getAll() {
-        return ResponseEntity.ok(eventService.getAll());
+    public List<Event> list() {
+        return service.listAll();
     }
 
     @PostMapping
-    public ResponseEntity<EventDTO> create(@RequestBody CreateEventDTO createEventDTO) {
-        return ResponseEntity.ok(eventService.create(createEventDTO));
+    public Event create(@RequestBody Event event) {
+        return service.create(event);
     }
 
+    @GetMapping("/{id}")
+    public Event find(@PathVariable UUID id) {
+        return service.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Event update(@PathVariable UUID id, @RequestBody Event event) {
+        return service.update(id, event);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable UUID id) {
+        service.delete(id);
+    }
 }

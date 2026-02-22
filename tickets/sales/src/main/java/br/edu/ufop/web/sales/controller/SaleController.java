@@ -1,29 +1,42 @@
 package br.edu.ufop.web.sales.controller;
 
-import br.edu.ufop.web.sales.business.services.SaleService;
-import br.edu.ufop.web.sales.controller.dtos.sales.CreateSaleDTO;
-import br.edu.ufop.web.sales.controller.dtos.sales.SaleDTO;
+import br.edu.ufop.web.sales.Enum.SaleStatus;
+import br.edu.ufop.web.sales.entity.Sale;
+import br.edu.ufop.web.sales.service.SaleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/sales")
 @RequiredArgsConstructor
 public class SaleController {
 
-    private final SaleService saleService;
+    private final SaleService service;
 
     @GetMapping
-    public ResponseEntity<List<SaleDTO>> getAll() {
-        return ResponseEntity.ok(saleService.getAll());
+    public List<Sale> list() {
+        return service.listAll();
     }
 
     @PostMapping
-    public ResponseEntity<SaleDTO> create(@RequestBody CreateSaleDTO createSaleDTO) {
-        return ResponseEntity.ok(saleService.create(createSaleDTO));
+    public Sale create(@RequestBody Sale sale) {
+        return service.create(sale);
     }
 
+    @PatchMapping("/{id}/status")
+    public Sale updateStatus(
+            @PathVariable UUID id,
+            @RequestParam SaleStatus status
+    ) {
+        return service.updateStatus(id, status);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable UUID id) {
+        service.delete(id);
+    }
 }
+

@@ -1,31 +1,60 @@
+######### EVENTOS #########
+
 ###
 @urlServer = http://localhost:4000
 
-###
+### Listar eventos
 GET {{urlServer}}/events
 
-###
+### Criar evento
 POST {{urlServer}}/events
 Content-Type: application/json
 
 {
-  "description": "Curso Spring JPA",
-  "type": 4,
-  "dateTime": "2025-12-20T18:00:00",
-  "startingSales": "2025-12-10T20:00:00",
-  "endingSales": "2025-12-19T23:59:59",
-  "price": 1500
+  "description": "Show da Banda X",
+  "type": 1,
+  "date": "2025-12-01",
+  "startSales": "2025-10-01T10:00:00",
+  "endSales": "2025-11-30T23:59:00",
+  "price": 150.0
 }
 
-###
+### Buscar evento por ID
+GET {{urlServer}}/events/{{eventId}}
+
+### Atualizar evento
+PUT {{urlServer}}/events/{{eventId}}
+Content-Type: application/json
+
+{
+  "description": "Show Atualizado",
+  "type": 1,
+  "date": "2025-12-01",
+  "startSales": "2025-10-01T10:00:00",
+  "endSales": "2025-11-30T23:59:00",
+  "price": 180.0
+}
+
+### Deletar evento
+DELETE {{urlServer}}/events/{{eventId}}
+
+
+######### VENDAS #########
+
+### Listar vendas
 GET {{urlServer}}/sales
 
-###
+### Registrar venda
 POST {{urlServer}}/sales
 Content-Type: application/json
 
 {
-  "eventId": "ce37de40-de60-4835-b77b-e6370bc784b7",
-  "userId": "92ff4138-3ae5-4282-a918-46a663c17629"
+  "userId": "e1bb9c42-ded2-4f0d-8d3e-5d1ca1a0f111",
+  "eventId": "b8f9e11a-2312-44db-9fe2-4ed65823bbb1"
 }
 
+### Atualizar status da venda
+PATCH {{urlServer}}/{{saleId}}/status?status=PAGO
+
+### Deletar venda
+DELETE {{urlServer}}/{{saleId}}
