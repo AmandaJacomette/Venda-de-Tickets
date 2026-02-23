@@ -23,9 +23,9 @@ POST {{urlServer}}/users
 Content-Type: application/json
 
 {
-  "name": "Maria Fernanda",
-  "creditCardNetworkId": "5dd30405-e5cc-42f6-8c2f-35aa70e55ce3",
-  "email": "mariafernanda@web.ufop.edu.br",
+  "name": "Ana Clara",
+  "creditCardNetworkId": "c9b75627-8bc7-4f88-a93f-fe52d34110f0",
+  "email": "ana@web.ufop.edu.br",
   "password": "123456"
 }
 

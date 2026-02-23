@@ -58,4 +58,4 @@ Content-Type: application/json
 PATCH {{urlServer}}/sales/{{saleId}}/status?status=PAGO
 
 ### Deletar venda
-DELETE {{urlServer}}/sales/{{saleId}}
+DELETE {{urlServer}}/sales/e3163c27-6a51-4013-a96e-29fb69f4873d

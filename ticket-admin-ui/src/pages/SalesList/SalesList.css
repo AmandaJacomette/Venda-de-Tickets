@@ -1,0 +1,89 @@
+.sales-container {
+  padding: 60px 80px;
+}
+
+.sales-container h2 {
+  margin-bottom: 30px;
+}
+
+.sale-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.sale-card:hover {
+  transform: translateY(-4px);
+}
+
+.sale-left p {
+  margin: 6px 0;
+}
+
+.sale-id {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.sale-event {
+  color: #374151;
+  font-weight: 500;
+}
+
+.sale-user {
+  color: #6b7280;
+}
+
+.sale-date {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.sale-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.sale-card select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+}
+
+/* STATUS BADGES */
+
+.status {
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.open {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.status.paid {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.canceled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status.refunded {
+  background: #fef3c7;
+  color: #92400e;
+}
